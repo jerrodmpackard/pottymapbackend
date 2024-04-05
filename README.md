@@ -73,3 +73,7 @@ Models / folder
         - PasswordDTO / file
             - string Salt
             - string Hash
+
+Azure SQL Authentication
+Username: PottyMapBackEnd
+Password: zebwoF-kivfaq-9hyhqy
