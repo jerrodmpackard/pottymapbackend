@@ -25,7 +25,7 @@ builder.Services.AddDbContext<DataContext>(Options => Options.UseSqlServer(conne
 
 builder.Services.AddCors(options => options.AddPolicy("PottyMapPolicy", 
 builder => {
-    builder.WithOrigins("http://localhost:5156")
+    builder.WithOrigins("http://localhost:5156", "http://localhost:3000")
     .AllowAnyHeader()
     .AllowAnyMethod();
 }));
@@ -45,7 +45,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 
 app.UseCors("PottyMapPolicy");
 
