@@ -131,10 +131,10 @@ namespace pottymapbackend.Services
                 // If true, we need to store our user object
                 // To do this, we need to create another helper function
 
-                UserModel founderUser = GetUserByUsername(User.Username);
+                UserModel foundUser = GetUserByUsername(User.Username);
 
                 // This will check if our password is correct
-                if (VerifyUsersPassword(User.Password, founderUser.Hash, founderUser.Salt))
+                if (VerifyUsersPassword(User.Password, foundUser.Hash, foundUser.Salt))
                 {
 
                     // anyone with this secretKey can access the login
@@ -144,10 +144,10 @@ namespace pottymapbackend.Services
                     // Sign in credentials
                     var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
 
-                    // Generates a new token and sign a user out after 30 minutes
+                    // Generates a new token and signs a user out after 30 minutes
                     // issuer and audience is a local port for our jwt token
                     // Once you deploy, you will remove that port and add in your Azure front end URL!
-                    var tokeOptions = new JwtSecurityToken(
+                    var tokenOptions = new JwtSecurityToken(
                         issuer: "http://localhost:5000",
                         audience: "http://localhost:5000",
                         claims: new List<Claim>(), // Claims can be added here if needed
@@ -156,7 +156,7 @@ namespace pottymapbackend.Services
                     );
 
                     // Generate JWT token as a string
-                    var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
+                    var tokenString = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
 
                     // return JWT token through http response with status code 200
                     Result = Ok(new { Token = tokenString });

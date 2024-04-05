@@ -9,6 +9,9 @@ namespace pottymapbackend.Services.Context
 {
     public class DataContext : DbContext
     {
+
+        // These will become the names of the tables: UserInfo and BathroomInfo
+
         public DbSet<UserModel> UserInfo { get; set; }
         public DbSet<BathroomModel> BathroomInfo { get; set; }
 
