@@ -1,5 +1,10 @@
+/Users/Jerrod/Documents/CodeStackAcademy/FullStackApp/pottymapbackend/bin/Debug/net7.0/publish/web.config
 /Users/Jerrod/Documents/CodeStackAcademy/FullStackApp/pottymapbackend/bin/Debug/net7.0/appsettings.Development.json
 /Users/Jerrod/Documents/CodeStackAcademy/FullStackApp/pottymapbackend/bin/Debug/net7.0/appsettings.json
+/Users/Jerrod/Documents/CodeStackAcademy/FullStackApp/pottymapbackend/bin/Debug/net7.0/publish/appsettings.Development.json
+/Users/Jerrod/Documents/CodeStackAcademy/FullStackApp/pottymapbackend/bin/Debug/net7.0/publish/appsettings.json
+/Users/Jerrod/Documents/CodeStackAcademy/FullStackApp/pottymapbackend/bin/Debug/net7.0/publish/pottymapbackend.deps.json
+/Users/Jerrod/Documents/CodeStackAcademy/FullStackApp/pottymapbackend/bin/Debug/net7.0/publish/pottymapbackend.runtimeconfig.json
 /Users/Jerrod/Documents/CodeStackAcademy/FullStackApp/pottymapbackend/bin/Debug/net7.0/pottymapbackend
 /Users/Jerrod/Documents/CodeStackAcademy/FullStackApp/pottymapbackend/bin/Debug/net7.0/pottymapbackend.deps.json
 /Users/Jerrod/Documents/CodeStackAcademy/FullStackApp/pottymapbackend/bin/Debug/net7.0/pottymapbackend.runtimeconfig.json
