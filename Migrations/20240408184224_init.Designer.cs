@@ -12,7 +12,7 @@ using pottymapbackend.Services.Context;
 namespace pottymapbackend.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240405094727_init")]
+    [Migration("20240408184224_init")]
     partial class init
     {
         /// <inheritdoc />

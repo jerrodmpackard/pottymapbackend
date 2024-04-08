@@ -233,5 +233,20 @@ namespace pottymapbackend.Services
             return result;
         }
 
+        public UserIdDTO GetUserIdDTOByUsername(string username)
+        {
+            UserIdDTO UserInfo = new UserIdDTO();
+
+            // Now we need to query through our database to find the user based on the name inside the database
+            UserModel foundUser = _context.UserInfo.SingleOrDefault(user => user.Username == username);
+
+            UserInfo.UserId = foundUser.ID;
+
+            // Assign the 
+            UserInfo.PublisherName = foundUser.Username;
+
+            return UserInfo;
+        }
+
     }
 }

@@ -73,5 +73,14 @@ namespace pottymapbackend.Controllers
             return _data.DeleteUser(userToDelete);
         }
 
+
+        // Get User By Username endpoint
+        [HttpGet]
+        [Route("GetUserByUsername/{username}")]
+        public UserIdDTO GetUserByUsername(string username)
+        {
+            return _data.GetUserIdDTOByUsername(username);
+        }
+
     }
 }
