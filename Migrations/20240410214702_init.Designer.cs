@@ -12,7 +12,7 @@ using pottymapbackend.Services.Context;
 namespace pottymapbackend.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240408184224_init")]
+    [Migration("20240410214702_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -51,8 +51,14 @@ namespace pottymapbackend.Migrations
                     b.Property<string>("KeyRequired")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double?>("Latitude")
+                        .HasColumnType("float");
+
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<double?>("Longitude")
+                        .HasColumnType("float");
 
                     b.Property<string>("NumberOfStalls")
                         .HasColumnType("nvarchar(max)");

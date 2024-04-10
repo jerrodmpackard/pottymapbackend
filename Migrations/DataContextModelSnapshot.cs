@@ -48,8 +48,14 @@ namespace pottymapbackend.Migrations
                     b.Property<string>("KeyRequired")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double?>("Latitude")
+                        .HasColumnType("float");
+
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<double?>("Longitude")
+                        .HasColumnType("float");
 
                     b.Property<string>("NumberOfStalls")
                         .HasColumnType("nvarchar(max)");
