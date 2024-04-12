@@ -25,7 +25,7 @@ builder.Services.AddDbContext<DataContext>(Options => Options.UseSqlServer(conne
 
 builder.Services.AddCors(options => options.AddPolicy("PottyMapPolicy", 
 builder => {
-    builder.WithOrigins("http://localhost:5156", "http://localhost:3000", "https://pottymap.vercel.app/")
+    builder.WithOrigins("http://localhost:5156", "http://localhost:3000", "http://pottymap.vercel.app/")
     .AllowAnyHeader()
     .AllowAnyMethod();
 }));
