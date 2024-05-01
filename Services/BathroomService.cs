@@ -18,7 +18,7 @@ namespace pottymapbackend.Services
         public bool AddBathroom(BathroomModel newBathroom)
         {
             _context.Add(newBathroom);
-            // Any return other than zero, we save changes. This is becasue this function is set up as a bool
+            // Any return other than zero, we save changes. This is because this function is set up as a bool
             return _context.SaveChanges() != 0;
         }
 
