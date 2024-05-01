@@ -10,6 +10,7 @@ namespace pottymapbackend.Models
         // Leaving these string properties as nullable allows them to accept a null value, but we can still require the user to enter a value for each of them on the front-end
 
         public int ID { get; set; }
+        public string? Name { get; set; }
         public string? Address { get; set; }
         public string? City { get; set; }
         public string? State { get; set; }
