@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 // builder.Services.AddScoped<Insert Service Name here>(); Don't forget the parenthesis
 // If your service name is giving an error with red squiggly line underneath, use quickfix to add the using statement at the top
-    // --> using projectName.Services
+// --> using projectName.Services
 builder.Services.AddScoped<BathroomService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<PasswordService>();
@@ -23,15 +23,20 @@ var connectionString = builder.Configuration.GetConnectionString("MyConnectionSt
 // Configures entity framework core to use SQL server as the database provider for a datacontext DbContext in our project
 builder.Services.AddDbContext<DataContext>(Options => Options.UseSqlServer(connectionString));
 
-builder.Services.AddCors(options => options.AddPolicy("PottyMapPolicy", 
-builder => {
+builder.Services.AddCors(options => options.AddPolicy("PottyMapPolicy",
+builder =>
+{
     builder.WithOrigins("http://localhost:5156", "http://localhost:3000", "https://pottymap.vercel.app")
     .AllowAnyHeader()
     .AllowAnyMethod();
 }));
 
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+.AddJsonOptions(options =>
+        {
+            options.JsonSerializerOptions.WriteIndented = true; // Enable indentation
+        });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

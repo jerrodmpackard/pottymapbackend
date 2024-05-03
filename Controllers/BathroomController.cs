@@ -35,9 +35,26 @@ namespace pottymapbackend.Controllers
             return _data.GetAllBathrooms();
         }
 
+        // Get bathrooms as GeoJSON data
+        [HttpGet]
+        [Route("GetAllBathroomsAsGeoJSON")]
+        public ActionResult<string> GetAllBathroomsAsGeoJSON()
+        {
+            // Retrieve GeoJSON data from the service
+            string geoJSON = _data.GetAllBathroomsAsGeoJSON();
+
+            // Check if data was found
+            if (string.IsNullOrEmpty(geoJSON))
+            {
+                return NotFound(); // Return 404 if no data found
+            }
+
+            return Ok(geoJSON);
+        }
+
         // Update bathroom
         // Since we are updating a bathroom, we want to take in the entire BathroomModel and call it bathroomUpdate
-        [HttpGet]
+        [HttpPut]
         [Route("UpdateBathroom")]
         public bool UpdateBathroom(BathroomModel bathroomUpdate)
         {

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using pottymapbackend.Models;
 using pottymapbackend.Services.Context;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 namespace pottymapbackend.Services
 {
@@ -25,6 +27,53 @@ namespace pottymapbackend.Services
         public IEnumerable<BathroomModel> GetAllBathrooms()
         {
             return _context.BathroomInfo;
+        }
+
+        public string GetAllBathroomsAsGeoJSON()
+        {
+            // Your SQL query to generate GeoJSON data
+            string sqlQuery = @"
+                DECLARE @featureList nvarchar(max) =
+                (
+                    SELECT
+                        'Feature'                                           as 'type',
+                        name                                                as 'properties.name',
+                        city                                                as 'properties.city',
+                        state                                               as 'properties.state',
+                        zipCode                                             as 'properties.zipCode',
+                        gender                                              as 'properties.gender',
+                        type                                                as 'properties.type',
+                        numberOfStalls                                      as 'properties.numberOfStalls',
+                        wheelchairAccessibility                             as 'properties.wheelchairAccessibility',
+                        hoursOfOperation                                    as 'properties.hoursOfOperation',
+                        openToPublic                                        as 'properties.openToPublic',
+                        keyRequired                                         as 'properties.keyRequired',
+                        babyChangingStation                                 as 'properties.babyChangingStation',
+                        cleanliness                                         as 'properties.cleanliness',
+                        safety                                              as 'properties.safety',
+                        'Point'                                             as 'geometry.type',
+                        JSON_QUERY(CONCAT('[', CAST(longitude AS NVARCHAR), ', ', CAST(latitude AS NVARCHAR), ']')) as 'geometry.coordinates'
+                    FROM BathroomInfo
+                    FOR JSON PATH
+                )
+
+                DECLARE @featureCollection nvarchar(max) = (
+                    SELECT 'FeatureCollection' as 'type',
+                    JSON_QUERY(@featureList)   as 'features'
+                    FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
+                )
+
+                SELECT @featureCollection";
+
+            using (SqlConnection connection = new SqlConnection(_context.Database.GetConnectionString()))
+            {
+                SqlCommand command = new SqlCommand(sqlQuery, connection);
+                connection.Open();
+
+                string geoJSON = (string)command.ExecuteScalar();
+
+                return geoJSON;
+            }
         }
 
         public bool UpdateBathroom(BathroomModel bathroomUpdate)
