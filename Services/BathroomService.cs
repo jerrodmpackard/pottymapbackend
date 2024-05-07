@@ -38,6 +38,7 @@ namespace pottymapbackend.Services
                     SELECT
                         'Feature'                                           as 'type',
                         name                                                as 'properties.name',
+                        address                                             as 'properties.address',
                         city                                                as 'properties.city',
                         state                                               as 'properties.state',
                         zipCode                                             as 'properties.zipCode',
@@ -52,7 +53,7 @@ namespace pottymapbackend.Services
                         cleanliness                                         as 'properties.cleanliness',
                         safety                                              as 'properties.safety',
                         'Point'                                             as 'geometry.type',
-                        JSON_QUERY(CONCAT('[', CAST(longitude AS NVARCHAR), ', ', CAST(latitude AS NVARCHAR), ']')) as 'geometry.coordinates'
+                        JSON_QUERY(CONCAT('[', CAST(longitude AS decimal(18, 15)), ', ', CAST(latitude AS decimal(18, 15)), ']')) as 'geometry.coordinates'
                     FROM BathroomInfo
                     FOR JSON PATH
                 )
