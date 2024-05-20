@@ -207,6 +207,25 @@ namespace pottymapbackend.Services
             return result;
         }
 
+        public bool ForgotPassword(string username, string password)
+        {
+            UserModel foundUser = GetUserByUsername(username);
+
+            var newPassword = HashPassword(password);
+
+            bool result = false;
+
+            if (foundUser != null)
+            {
+                foundUser.Salt = newPassword.Salt;
+                foundUser.Hash = newPassword.Hash;
+                _context.Update<UserModel>(foundUser);
+                result = _context.SaveChanges() != 0;
+            }
+
+            return result;
+        }
+
         public UserModel GetUserById(int id)
         {
             return _context.UserInfo.SingleOrDefault(user => user.ID == id);

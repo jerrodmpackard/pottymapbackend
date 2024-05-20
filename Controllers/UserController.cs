@@ -56,7 +56,7 @@ namespace pottymapbackend.Controllers
         }
 
         [HttpPut]
-        [Route("UpdateUser/{id}/{username}")]
+        [Route("UpdateUsername/{id}/{username}")]
 
         public bool UpdateUser(int id, string username)
         {
@@ -80,6 +80,14 @@ namespace pottymapbackend.Controllers
         public UserIdDTO GetUserByUsername(string username)
         {
             return _data.GetUserIdDTOByUsername(username);
+        }
+
+        // Forgot Password endpoint
+        [HttpPut]
+        [Route("ForgotPassword/{username}/{password}")]
+        public bool ForgotPassword(string username, string password)
+        {
+            return _data.ForgotPassword(username, password);
         }
 
     }
