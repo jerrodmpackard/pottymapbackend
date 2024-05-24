@@ -42,6 +42,38 @@ namespace pottymapbackend.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "FavoriteBathroomsInfo",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    BathroomId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FavoriteBathroomsInfo", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FavoritePottySpotInfo",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserID = table.Column<int>(type: "int", nullable: false),
+                    PublishedName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsPublished = table.Column<bool>(type: "bit", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FavoritePottySpotInfo", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UserInfo",
                 columns: table => new
                 {
@@ -63,6 +95,12 @@ namespace pottymapbackend.Migrations
         {
             migrationBuilder.DropTable(
                 name: "BathroomInfo");
+
+            migrationBuilder.DropTable(
+                name: "FavoriteBathroomsInfo");
+
+            migrationBuilder.DropTable(
+                name: "FavoritePottySpotInfo");
 
             migrationBuilder.DropTable(
                 name: "UserInfo");

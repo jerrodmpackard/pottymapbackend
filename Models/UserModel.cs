@@ -15,7 +15,7 @@ namespace pottymapbackend.Models
 
         public UserModel()
         {
-            
+
         }
     }
 }

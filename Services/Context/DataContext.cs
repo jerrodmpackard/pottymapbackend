@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using pottymapbackend.Models;
+using pottymapbackend.Models.DTO;
 
 namespace pottymapbackend.Services.Context
 {
@@ -14,6 +15,8 @@ namespace pottymapbackend.Services.Context
 
         public DbSet<UserModel> UserInfo { get; set; }
         public DbSet<BathroomModel> BathroomInfo { get; set; }
+        public DbSet<FavoritePottySpotModel> FavoritePottySpotInfo { get; set; }
+        public DbSet<FavoriteBathroomModel> FavoriteBathroomsInfo { get; set; }
 
         public DataContext(DbContextOptions options) : base(options) { }
 

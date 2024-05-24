@@ -12,6 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<BathroomService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<PasswordService>();
+builder.Services.AddScoped<FavoritePottySpotService>();
+builder.Services.AddScoped<FavoriteBathroomService>();
 
 
 // Now we want to add our connection string. We will create a variable to hold the connection string

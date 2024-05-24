@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using pottymapbackend.Models;
+using pottymapbackend.Models.DTO;
 using pottymapbackend.Services;
 
 namespace pottymapbackend.Controllers

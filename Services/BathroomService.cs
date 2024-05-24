@@ -6,6 +6,7 @@ using pottymapbackend.Models;
 using pottymapbackend.Services.Context;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using pottymapbackend.Models.DTO;
 
 namespace pottymapbackend.Services
 {
@@ -37,6 +38,7 @@ namespace pottymapbackend.Services
                 (
                     SELECT
                         'Feature'                                           as 'type',
+                        id                                                  as 'properties.id',
                         name                                                as 'properties.name',
                         address                                             as 'properties.address',
                         city                                                as 'properties.city',
@@ -75,6 +77,11 @@ namespace pottymapbackend.Services
 
                 return geoJSON;
             }
+        }
+
+        public BathroomModel GetBathroomByID(int id)
+        {
+            return _context.BathroomInfo.SingleOrDefault(bathroom => bathroom.ID == id);
         }
 
         public bool UpdateBathroom(BathroomModel bathroomUpdate)
