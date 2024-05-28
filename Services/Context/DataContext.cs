@@ -17,6 +17,9 @@ namespace pottymapbackend.Services.Context
         public DbSet<BathroomModel> BathroomInfo { get; set; }
         public DbSet<FavoritePottySpotModel> FavoritePottySpotInfo { get; set; }
         public DbSet<FavoriteBathroomModel> FavoriteBathroomsInfo { get; set; }
+        public DbSet<RatingModel> RatingsInfo { get; set; }
+        public DbSet<ReportModel> ReportInfo { get; set; }
+        public DbSet<CommentModel> CommentInfo { get; set; }
 
         public DataContext(DbContextOptions options) : base(options) { }
 

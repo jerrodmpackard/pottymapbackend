@@ -14,6 +14,9 @@ builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<PasswordService>();
 builder.Services.AddScoped<FavoritePottySpotService>();
 builder.Services.AddScoped<FavoriteBathroomService>();
+builder.Services.AddScoped<RatingsService>();
+builder.Services.AddScoped<ReportService>();
+builder.Services.AddScoped<CommentService>();
 
 
 // Now we want to add our connection string. We will create a variable to hold the connection string

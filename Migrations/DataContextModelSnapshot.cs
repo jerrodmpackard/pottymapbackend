@@ -69,8 +69,8 @@ namespace pottymapbackend.Migrations
                     b.Property<string>("OpenToPublic")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Rating")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("Rating")
+                        .HasColumnType("float");
 
                     b.Property<string>("Safety")
                         .HasColumnType("nvarchar(max)");
@@ -90,6 +90,37 @@ namespace pottymapbackend.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("BathroomInfo");
+                });
+
+            modelBuilder.Entity("pottymapbackend.Models.CommentModel", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<int?>("BathroomId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ParentCommentId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("PostedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Reply")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("CommentInfo");
                 });
 
             modelBuilder.Entity("pottymapbackend.Models.FavoriteBathroomModel", b =>
@@ -142,6 +173,62 @@ namespace pottymapbackend.Migrations
                     b.ToTable("FavoritePottySpotInfo");
                 });
 
+            modelBuilder.Entity("pottymapbackend.Models.RatingModel", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<int>("BathroomId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Rating")
+                        .HasColumnType("float");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("RatingsInfo");
+                });
+
+            modelBuilder.Entity("pottymapbackend.Models.ReportModel", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<int>("BathroomId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsResolved")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Issue")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PriorityLevel")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("ReportInfo");
+                });
+
             modelBuilder.Entity("pottymapbackend.Models.UserModel", b =>
                 {
                     b.Property<int>("ID")
@@ -165,6 +252,17 @@ namespace pottymapbackend.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("UserInfo");
+                });
+
+            modelBuilder.Entity("pottymapbackend.Models.CommentModel", b =>
+                {
+                    b.HasOne("pottymapbackend.Models.UserModel", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

@@ -27,7 +27,7 @@ namespace pottymapbackend.Models
         public string? BabyChangingStation { get; set; }
         public string? Cleanliness { get; set; }
         public string? Safety { get; set; }
-        public string? Rating { get; set; }
+        public double Rating { get; set; }
         public bool? IsDeleted { get; set; }
 
         public BathroomModel()

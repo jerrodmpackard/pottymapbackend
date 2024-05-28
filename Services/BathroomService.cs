@@ -54,6 +54,7 @@ namespace pottymapbackend.Services
                         babyChangingStation                                 as 'properties.babyChangingStation',
                         cleanliness                                         as 'properties.cleanliness',
                         safety                                              as 'properties.safety',
+                        rating                                              as 'properties.rating',
                         'Point'                                             as 'geometry.type',
                         JSON_QUERY(CONCAT('[', CAST(longitude AS decimal(18, 15)), ', ', CAST(latitude AS decimal(18, 15)), ']')) as 'geometry.coordinates'
                     FROM BathroomInfo
