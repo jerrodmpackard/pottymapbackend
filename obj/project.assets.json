@@ -3921,25 +3921,24 @@
     ]
   },
   "packageFolders": {
-    "/Users/Jerrod/.nuget/packages/": {}
+    "C:\\Users\\lesco\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Jerrod/Documents/CodeStackAcademy/FullStackApp/pottymapbackend/pottymapbackend.csproj",
+      "projectUniqueName": "C:\\Users\\lesco\\OneDrive\\Desktop\\CodeStack\\CSLevel4\\fullstack-back\\pottymapbackend\\pottymapbackend.csproj",
       "projectName": "pottymapbackend",
-      "projectPath": "/Users/Jerrod/Documents/CodeStackAcademy/FullStackApp/pottymapbackend/pottymapbackend.csproj",
-      "packagesPath": "/Users/Jerrod/.nuget/packages/",
-      "outputPath": "/Users/Jerrod/Documents/CodeStackAcademy/FullStackApp/pottymapbackend/obj/",
+      "projectPath": "C:\\Users\\lesco\\OneDrive\\Desktop\\CodeStack\\CSLevel4\\fullstack-back\\pottymapbackend\\pottymapbackend.csproj",
+      "packagesPath": "C:\\Users\\lesco\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lesco\\OneDrive\\Desktop\\CodeStack\\CSLevel4\\fullstack-back\\pottymapbackend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/Jerrod/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\lesco\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4006,7 +4005,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.400/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
